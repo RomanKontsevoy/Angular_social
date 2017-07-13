@@ -5,7 +5,7 @@ import { UsersService } from '../_services/users.service';
   selector: 'users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.sass'],
-  providers: [UsersService]
+  //providers: [UsersService]
 })
 export class UsersComponent implements OnInit {
   

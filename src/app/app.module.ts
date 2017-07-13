@@ -5,6 +5,7 @@ import { RouterModule } from '@angular/router';
 import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { HeaderComponent } from './header/header.component';
+import { UsersService } from './_services/users.service';
 
 @NgModule({
   declarations: [
@@ -14,9 +15,15 @@ import { HeaderComponent } from './header/header.component';
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    HttpModule,
+    RouterModule.forRoot([
+      {
+        path: 'users',
+        component: UsersComponent
+      },
+    ])
   ],
-  providers: [],
+  providers: [UsersService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
