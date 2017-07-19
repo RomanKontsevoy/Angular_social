@@ -1,3 +1,5 @@
-<p>
-  header works!
-</p>
+<h4 *ngIf="!user">LOADING...</h4>
+<h4 *ngIf="user">
+    <a routerLink="/user/{{user.id}}">Welcome,
+        {{user.name}}!</a>
+</h4>

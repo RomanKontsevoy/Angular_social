@@ -2,6 +2,9 @@
 <ul *ngIf="users">
     <li *ngFor="let user of users">
         <a routerLink="/user/{{user.id}}">{{user.name}}</a>
-        <app-like></app-like>
+        <span>
+            <app-like></app-like>
+        </span>
+
     </li>
 </ul>
