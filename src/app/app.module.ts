@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { UsersComponent } from './users/users.component';
 import { HeaderComponent } from './header/header.component';
 import { UsersService } from './_services/users.service';
+import { LikeComponent } from './like/like.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     UsersComponent,
-    HeaderComponent
+    HeaderComponent,
+    LikeComponent
   ],
   imports: [
     BrowserModule,
