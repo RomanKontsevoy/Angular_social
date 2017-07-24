@@ -8,16 +8,14 @@ import { UsersService } from '../_services/users.service';
   //providers: [UsersService]
 })
 export class UsersComponent implements OnInit {
-  
+
   users;
   constructor(
     private us: UsersService
   ) { }
 
   ngOnInit() {
-    // this.us.getUsers().subscribe( res => {
-    //   this.users = res;
-    // } )
+
     this.us.getUsers()
       .then( res => {
         this.users = res.json();
