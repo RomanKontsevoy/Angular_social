@@ -3,7 +3,7 @@ import { Observable } from "rxjs/Observable";
 import { Http } from "@angular/http";
 import "rxjs/add/operator/map";
 import "rxjs/add/operator/toPromise";
-import { Post } from "./../post";
+import { Post } from "./../interfaces";
 
 @Injectable()
 
@@ -14,9 +14,15 @@ export class PostService {
 
   constructor(private _http: Http) { }
 
-  getPosts() : Promise<Post[]>{
-    return this._http.get(this._url)
+  getPosts(userId?) : Promise<Post[]>{
+    if (userId){
+      return this._http.get(this._url + "/?userId=" + userId)
       .map(res => res.json()).toPromise();
+    } else{
+      return this._http.get(this._url)
+      .map(res => res.json()).toPromise();
+    }
+    
   }
 
   createPost(post: Post){

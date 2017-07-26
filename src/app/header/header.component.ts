@@ -12,8 +12,7 @@ export class HeaderComponent implements OnInit {
   id;
   user;
     constructor(
-      private us: UsersService,
-      private router: ActivatedRoute
+      private us: UsersService
 
     ) { }
 

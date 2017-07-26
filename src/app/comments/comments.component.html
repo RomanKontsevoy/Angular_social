@@ -1,3 +1,20 @@
-<p>
-  comments works!
-</p>
+<h2 *ngIf="!comments">
+    LOADING ...
+</h2>
+
+<div *ngIf="comments">
+    <h5>Comments:</h5>
+    <div class="comment" *ngFor="let comment of comments">
+        <p>Комментарий:
+            <span>
+            <app-like></app-like>
+          </span>
+        </p>
+        <p>{{comment.body}}</p>
+
+
+
+
+
+    </div>
+</div>
