@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  id;
+  userId = 2;
   user;
     constructor(
       private us: UsersService
@@ -29,7 +29,7 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit() {
     // this.getId();
-    this.us.getUser( 2 )
+    this.us.getUser( this.userId )
       .then( res => {
         this.user = res.json();
       } )

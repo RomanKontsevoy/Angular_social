@@ -1,8 +1,7 @@
 <div>
     <h4 *ngIf="!user">LOADING...</h4>
-    <h4 *ngIf="user">
-        <a routerLink="/user/{{user.id}}">Welcome,
-            {{user.name}}!</a>
+    <h4 *ngIf="user">Welcome,
+        <a routerLink="/user/{{user.id}}">{{user.name}}</a>!
     </h4>
     <!-- <nav>
 
@@ -10,12 +9,16 @@
 </nav> -->
 
     <button class="btn btn-primary">
-        <a routerLink="/user-profile" routerLinkActive="active">MyProfile</a>
+        <a [routerLink]="['/profile', userId]" routerLinkActive="active">MyProfile</a>
     </button>
     <button class="btn btn-primary">
         <a routerLink="/users" routerLinkActive="active">Users</a>
     </button>
     <button class="btn btn-primary">
         <a routerLink="/posts" routerLinkActive="active">Posts</a>
+    </button>
+    <button class="btn btn-primary">
+      <a routerLink="/albums" routerLinkActive="active">Albums
+      </a>
     </button>
 </div>

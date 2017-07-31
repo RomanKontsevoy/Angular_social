@@ -1,7 +1,7 @@
 <h2 *ngIf="!users">LOADING ...</h2>
 <ul *ngIf="users">
     <li *ngFor="let user of users">
-        <a routerLink="/user/{{user.id}}">{{user.name}}</a>
+        <a [routerLink]="['/profile', user.id]" routerLinkActive="active">{{user.name}}</a>
         <span>
             <app-like></app-like>
         </span>

@@ -15,6 +15,8 @@ import { UsersService } from './_services/users.service';
 import { PostService } from './_services/Post.service';
 import { CommentsService } from './_services/Comments.service';
 import { ProfileComponent } from './profile/profile.component';
+import { AlbumsComponent } from './albums/albums.component';
+import { AlbumComponent } from './album/album.component';
 
 
 // import { AlertModule } from 'bootstrap';
@@ -23,21 +25,35 @@ const appRoutes: Routes = [
   {
     path: 'users',
     component: UsersComponent
-  },  {
+  },
+  {
     path: 'posts',
     component: PostsComponent,
     data: { title: 'All posts list' }
   },
   {
-    path: 'user_profile',
+    path: 'profile/:userId',
     component: ProfileComponent
   },
+  {
+    path: 'albums',
+    component: AlbumsComponent
+  },
   { path: '',
-    redirectTo: '/user_profile',
+    redirectTo: '/profile/2',
     pathMatch: 'full'
   },
+  // {
+  //   path: 'albums',
+  //   component: AlbumsComponent,
+  //   data: { title: 'All albums list' }
+  // },
+  // {
+  //   path: 'albums/:id',
+  //   component: AlbumComponent
+  // },
   { path: '**',
-    redirectTo: '/user_profile',
+    redirectTo: '/profile/2',
     pathMatch: 'full'
   },
 ];
@@ -52,7 +68,9 @@ const appRoutes: Routes = [
     LikeComponent,
     CommentsComponent,
     PostsComponent,
-    ProfileComponent
+    ProfileComponent,
+    AlbumsComponent,
+    AlbumComponent
   ],
   imports: [
     // AlertModule.forRoot(),
