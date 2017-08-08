@@ -40,7 +40,7 @@ const appRoutes: Routes = [
     component: AlbumsComponent
   },
   { path: '',
-    redirectTo: '/profile/2',
+    redirectTo: '/profile/7',
     pathMatch: 'full'
   },
   // {
@@ -53,7 +53,7 @@ const appRoutes: Routes = [
   //   component: AlbumComponent
   // },
   { path: '**',
-    redirectTo: '/profile/2',
+    redirectTo: '/profile/7',
     pathMatch: 'full'
   },
 ];

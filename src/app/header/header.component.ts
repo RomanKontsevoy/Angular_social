@@ -9,7 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HeaderComponent implements OnInit {
 
-  userId = 2;
+  userId = 7;
   user;
     constructor(
       private us: UsersService
