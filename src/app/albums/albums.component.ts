@@ -1,7 +1,9 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Subscription } from "rxjs/Subscription";
+
+import { Component, OnInit, OnDestroy, Input } from '@angular/core';
 import { PhotosService } from '../_services/photos.service';
 import { UsersService } from '../_services/users.service';
-
+import { ActivatedRoute } from "@angular/router";
 
 
 @Component({
@@ -9,37 +11,46 @@ import { UsersService } from '../_services/users.service';
   templateUrl: './albums.component.html',
   styleUrls: ['./albums.component.sass'],
   providers: [PhotosService]
-
 })
-export class AlbumsComponent implements OnInit {
 
-  albums = [];
-  users = [];
-  userId: number;
-  isLoading = true;
+
+export class AlbumsComponent implements OnInit, OnDestroy
+{
+
+  user;
+  albums;
+  paramsSubscription;
+  userId;
+
 
 
 
   constructor(
+    private route: ActivatedRoute,
     private phS: PhotosService,
     private us: UsersService
 ) { };
 
   ngOnInit() {
-    this.phS.getAlbums(this.userId)
-    .then(albums => {
-      this.isLoading = false;
+    this.paramsSubscription = this.route.params.subscribe(params => {
+      this.albums = this.phS.getAlbums(params["userId"])
+      .then(albums => {
       this.albums = albums;
-      console.log(this.albums)
-    });
-    this.us.getUsers()
-      .then( res => {
-        this.users = res.json();
-        console.log (this.users);
-      } )
-      .catch( error => {
-        console.log( error );
-      } )
-  }
+      console.log(this.albums);
+      });
+      this.user = this.us.getUser(params["userId"]).then( user => {
+        this.user = user.json();
+        console.log (this.user);
+        console.log(this.user.name);
 
-}
+
+      });
+    });
+  };
+
+
+  ngOnDestroy() {
+      this.paramsSubscription.unsubscribe();
+    };
+
+};

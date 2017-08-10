@@ -26,6 +26,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
   phone:string;
   company:string;
   paramsSubscription: Subscription;
+  userId:number;
 
 
 
@@ -35,7 +36,6 @@ export class ProfileComponent implements OnInit, OnDestroy {
     ) { }
 
   ngOnInit() {
-    // const userId =  this.route.snapshot.params['userId'];
 
 
     this.paramsSubscription = this.route.params.subscribe(params => {
@@ -51,6 +51,7 @@ export class ProfileComponent implements OnInit, OnDestroy {
         this.site = this.user.website;
         this.phone = this.user.phone;
         this.company = this.user.company.name;
+        this.userId = this.user.id;
       } )
       .catch( error => {
         console.log( error );

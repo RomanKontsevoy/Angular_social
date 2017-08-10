@@ -1,12 +1,24 @@
 <h2 *ngIf="!albums">
     LOADING ...</h2>
-<ul *ngIf="albums">
-    <li *ngFor="let album of albums">
-        <p>Имя пользователя: {{users[album.userId-1].name}}
-        </p>
-        <p>
-            Re-re{{album.title}}
-        </p>
-    </li>
+<div *ngIf="albums">
+    <p>
+        {{user.name}}
+    </p>
 
-</ul>
+    <ul>Album Titles:
+
+        <li *ngFor="let album of albums">
+            <p>Album id: {{album.id}}</p>
+            <p>
+
+                <a routerLink="['/photos', album.id]" routerLinkActive="active">
+                  {{album.title}}
+              </a>
+            </p>
+            <app-album></app-album>
+
+
+        </li>
+
+    </ul>
+</div>

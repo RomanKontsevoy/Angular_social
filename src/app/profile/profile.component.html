@@ -6,14 +6,14 @@
         <h5>Username: {{un}}</h5>
         <p>E-mail: {{em}}</p>
         <p>Full adress: {{ adress }}</p>
-        <agm-map [latitude]="lat" [longitude]="lng">
+        <!-- <agm-map [latitude]="lat" [longitude]="lng">
             <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
-        </agm-map>
+        </agm-map> -->
         <p>Website: {{site}}</p>
         <p>Phone: {{phone}}</p>
         <p>Company name: {{company}}</p>
         <button class="btn btn-primary">
-          <a routerLink="/albums" routerLinkActive="active">Albums
+          <a [routerLink]="['/albums', userId]" routerLinkActive="active">Albums
           </a>
         </button>
     </div>

@@ -1,3 +1,24 @@
-<p>
-  album works!
-</p>
+<div>
+    <!-- <h1>Album title: {{album?.title}}</h1> -->
+    <!-- <p>
+        <a [routerLink]="['/artists', album.artist.id]">{{album.artist.name}}</a>, {{album.year}}
+    </p> -->
+    <div class="row">
+        <div class="col-md-4">
+            <div>
+                <table>
+                    <tr>
+                        <td *ngFor="let photo of album | slice:0:6; let i=index">
+                            <img class="inline" src="{{photo?.thumbnailUrl}}">
+                            <p class="heigh">{{photo?.title}}</p>
+                            <p>{{photo?.albumId}}</p>
+                        </td>
+                    </tr>
+                </table>
+                <!-- <div class="caption">
+            <div [innerHTML]="album.title"></div>
+        </div> -->
+            </div>
+        </div>
+    </div>
+</div>

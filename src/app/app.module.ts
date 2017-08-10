@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Pipe } from '@angular/core';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { AppComponent } from './app.component';
@@ -36,8 +36,12 @@ const appRoutes: Routes = [
     component: ProfileComponent
   },
   {
-    path: 'albums',
+    path: 'albums/:userId',
     component: AlbumsComponent
+  },
+  {
+    path: 'photos/:albumId',
+    component: AlbumComponent
   },
   { path: '',
     redirectTo: '/profile/7',
@@ -84,4 +88,6 @@ const appRoutes: Routes = [
   providers: [UsersService],
   bootstrap: [AppComponent]
 })
+
+
 export class AppModule { }

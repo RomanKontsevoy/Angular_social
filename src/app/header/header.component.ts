@@ -17,18 +17,7 @@ export class HeaderComponent implements OnInit {
     ) { }
 
 
-  // ngOnInit() {
-  //   this.us.getUser(3)
-  //     .then( res => {
-  //       this.user = res.json();
-  //     } )
-  //     .catch( error => {
-  //       console.log( error );
-  //     } )
-  // }
-
   ngOnInit() {
-    // this.getId();
     this.us.getUser( this.userId )
       .then( res => {
         this.user = res.json();
@@ -38,10 +27,6 @@ export class HeaderComponent implements OnInit {
       } )
   }
 
-  // getId(){
-  //   this.router.params.subscribe( route => {
-  //     this.id = route['id'];
-  //   } )
-  // }
+
 
 }

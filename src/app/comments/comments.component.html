@@ -4,7 +4,7 @@
 
 <div *ngIf="comments">
     <h5>Comments:</h5>
-    <div class="comment" *ngFor="let comment of comments">
+    <div class="comment" *ngFor="let comment of comments | slice:0:3; let i=index">
         <p>Комментарий:
             <span>
             <app-like></app-like>
