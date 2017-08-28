@@ -10,9 +10,15 @@
                     <tr>
                         <td *ngFor="let photo of album | slice:0:6; let i=index">
                             <img class="inline" src="{{photo?.thumbnailUrl}}">
-                            <p class="heigh">{{photo?.title}}</p>
-                            <p>{{photo?.albumId}}</p>
+
+
                         </td>
+                    </tr>
+                    <tr>
+                        <td class="heigh" *ngFor="let photo of album | slice:0:6; let i=index">Title: {{photo?.title}}</td>
+                    </tr>
+                    <tr>
+                        <td class="heigh" *ngFor="let photo of album | slice:0:6; let i=index">Photo Id: {{photo?.id}}</td>
                     </tr>
                 </table>
                 <!-- <div class="caption">

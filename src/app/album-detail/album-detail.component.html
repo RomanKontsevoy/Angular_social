@@ -1,0 +1,17 @@
+<h2 *ngIf="!album">
+    LOADING ...</h2>
+<div *ngIf="album">
+
+    <div>
+        <div class="row">
+            <!-- <div class="col-md-4"> -->
+            <div class="minPhoto" *ngFor="let photo of album; let i=index">
+                <img class="inline" src="{{photo?.thumbnailUrl}}">
+                <p class="heigh">Album Id: {{photo?.albumId}}</p>
+                <p class="heigh">Title: {{photo?.title}}</p>
+                <p class="heigh">Photo Id: {{photo?.id}}</p>
+            </div>
+            <!-- </div> -->
+        </div>
+    </div>
+</div>

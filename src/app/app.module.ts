@@ -14,9 +14,12 @@ import { AgmCoreModule } from '@agm/core';
 import { UsersService } from './_services/users.service';
 import { PostService } from './_services/Post.service';
 import { CommentsService } from './_services/Comments.service';
+import { PhotosService } from './_services/photos.service'
+
 import { ProfileComponent } from './profile/profile.component';
 import { AlbumsComponent } from './albums/albums.component';
 import { AlbumComponent } from './album/album.component';
+import { AlbumDetailComponent } from './album-detail/album-detail.component';
 
 
 // import { AlertModule } from 'bootstrap';
@@ -40,8 +43,8 @@ const appRoutes: Routes = [
     component: AlbumsComponent
   },
   {
-    path: 'photos/:albumId',
-    component: AlbumComponent
+    path: 'albums/:userId/:albumId',
+    component: AlbumDetailComponent
   },
   { path: '',
     redirectTo: '/profile/7',
@@ -74,7 +77,8 @@ const appRoutes: Routes = [
     PostsComponent,
     ProfileComponent,
     AlbumsComponent,
-    AlbumComponent
+    AlbumComponent,
+    AlbumDetailComponent
   ],
   imports: [
     // AlertModule.forRoot(),
@@ -85,7 +89,10 @@ const appRoutes: Routes = [
       apiKey: 'AIzaSyBPhonzSOTDqwjGGRti5HBDmnTROxaPU-U'
     })
   ],
-  providers: [UsersService],
+  providers: [
+    UsersService,
+    PhotosService
+  ],
   bootstrap: [AppComponent]
 })
 

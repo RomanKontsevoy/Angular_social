@@ -7,11 +7,12 @@ import { Photo } from '../interfaces';
 
 
 @Component({
-  selector: 'app-album',
-  templateUrl: './album.component.html',
-  styleUrls: ['./album.component.sass']
+  selector: 'app-album-detail',
+  templateUrl: './album-detail.component.html',
+  styleUrls: ['./album-detail.component.sass']
 })
-export class AlbumComponent
+
+export class AlbumDetailComponent
 implements OnInit
 // , OnDestroy
 {
@@ -19,22 +20,16 @@ implements OnInit
   album;
   paramsSubscription: Subscription;
   @Input() albumId:number;
-  
-  
+
+
 
   constructor(private route: ActivatedRoute,
               private phS: PhotosService) {
                 console.log(this.albumId);
-                
-               }
+              }
 
   ngOnInit() {
-    // this.paramsSubscription = this.route.params.subscribe(params => {
-    //   this.album = this.phS.getPhotos(params['albumId']);
-    //   console.log( this.album );
-    // });
-
-      this.phS.getPhotos(this.albumId).then(album => this.album = album);
+    this.phS.getPhotos(this.albumId).then(album => this.album = album);
                 console.log(this.albumId);
 
   }

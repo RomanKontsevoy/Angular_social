@@ -30,13 +30,11 @@ export class PhotosService {
 
   getPhotos(albumId) : Promise<Photo>{
     if (albumId){
-      return this._http.get(this._url + "/photos/" + "/?albumId=" + albumId)
-      .map(res => res.json()).toPromise();
+      return this._http.get(this._url + "/photos/" + "/?albumId=" + albumId).toPromise().then(res => res.json());
 
 
     } else{
-      return this._http.get(this._url + "/photos")
-      .map(res => res.json()).toPromise();
+      return this._http.get(this._url + "/photos").toPromise().then(res => res.json());
     }
   }
 

@@ -10,12 +10,12 @@
         <li *ngFor="let album of albums">
             <p>Album id: {{album.id}}</p>
             <p>
-
-                <a routerLink="['/photos', album.id]" routerLinkActive="active">
+                Album Title:
+                <a routerLink="[album.id]" routerLinkActive="active">
                   {{album.title}}
-              </a>
+                </a>
             </p>
-            <app-album></app-album>
+            <app-album albumId={{album.id}}></app-album>
 
 
         </li>
