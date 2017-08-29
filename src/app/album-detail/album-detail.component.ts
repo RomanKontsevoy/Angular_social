@@ -18,19 +18,33 @@ implements OnInit
 {
 
   album;
-  paramsSubscription: Subscription;
-  @Input() albumId:number;
+  // paramsSubscription: Subscription;
 
 
 
   constructor(private route: ActivatedRoute,
               private phS: PhotosService) {
-                console.log(this.albumId);
               }
 
   ngOnInit() {
-    this.phS.getPhotos(this.albumId).then(album => this.album = album);
-                console.log(this.albumId);
+    this.route.params.subscribe(
+      params => {
+        let albumId:number = +params['albumId'];
+        //Присвоили переменной значение роута albumId
+        console.log(albumId);
+        this.phS.getPhotos(albumId)
+        .then(
+          album => this.album = album
+        );
+
+      }
+    );
+
+
+
+
+
+
 
   }
 

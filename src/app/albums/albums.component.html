@@ -11,7 +11,7 @@
             <p>Album id: {{album.id}}</p>
             <p>
                 Album Title:
-                <a routerLink="[album.id]" routerLinkActive="active">
+                <a [routerLink]="['/albums', album.userId, album.id]" routerLinkActive="active">
                   {{album.title}}
                 </a>
             </p>

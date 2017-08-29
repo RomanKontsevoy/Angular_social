@@ -21,6 +21,7 @@ export class AlbumsComponent implements OnInit, OnDestroy
   albums;
   paramsSubscription;
   userId;
+  albumId:number;
 
 
 

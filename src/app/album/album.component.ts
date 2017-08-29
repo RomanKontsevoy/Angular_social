@@ -13,34 +13,22 @@ import { Photo } from '../interfaces';
 })
 export class AlbumComponent
 implements OnInit
-// , OnDestroy
 {
 
   album;
-  paramsSubscription: Subscription;
-  @Input() albumId:number;
-  
-  
+  @Input() albumId:number; // Album id of the selected user album
+
+
 
   constructor(private route: ActivatedRoute,
               private phS: PhotosService) {
-                console.log(this.albumId);
-                
-               }
+         }
 
   ngOnInit() {
-    // this.paramsSubscription = this.route.params.subscribe(params => {
-    //   this.album = this.phS.getPhotos(params['albumId']);
-    //   console.log( this.album );
-    // });
+      this.phS.getPhotos(this.albumId).then(
+        album => this.album = album
+      );
+}
 
-      this.phS.getPhotos(this.albumId).then(album => this.album = album);
-                console.log(this.albumId);
-
-  }
-
-  // ngOnDestroy() {
-  //   this.paramsSubscription.unsubscribe();
-  // }
 
 }
