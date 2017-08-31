@@ -26,6 +26,15 @@ implements OnInit
               private phS: PhotosService) {
               }
 
+  onClick(a){
+      console.log("Clicked!");
+      let imgUrl = a.url;
+      console.log(imgUrl);
+      console.log(a);
+
+
+    };
+
   ngOnInit() {
     this.route.params.subscribe(
       params => {
@@ -39,12 +48,6 @@ implements OnInit
 
       }
     );
-
-
-
-
-
-
 
   }
 

@@ -1,8 +1,4 @@
 <div>
-    <!-- <h1>Album title: {{album?.title}}</h1> -->
-    <!-- <p>
-        <a [routerLink]="['/artists', album.artist.id]">{{album.artist.name}}</a>, {{album.year}}
-    </p> -->
     <div class="row">
         <div class="col-md-4">
             <div>
@@ -21,9 +17,6 @@
                         <td class="heigh" *ngFor="let photo of album | slice:0:6; let i=index">Photo Id: {{photo?.id}}</td>
                     </tr>
                 </table>
-                <!-- <div class="caption">
-            <div [innerHTML]="album.title"></div>
-        </div> -->
             </div>
         </div>
     </div>

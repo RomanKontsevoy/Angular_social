@@ -8,15 +8,14 @@
     <ul>Album Titles:
 
         <li *ngFor="let album of albums">
-            <p>Album id: {{album.id}}</p>
-            <p>
-                Album Title:
-                <a [routerLink]="['/albums', album.userId, album.id]" routerLinkActive="active">
-                  {{album.title}}
-                </a>
-            </p>
-            <app-album albumId={{album.id}}></app-album>
+            <a [routerLink]="['/albums', album.userId, album.id]" routerLinkActive="active">
+                <p>Album id: {{album.id}}</p>
+                <p>
+                    Album Title: {{album.title}}
 
+                </p>
+                <app-album albumId={{album.id}}></app-album>
+            </a>
 
         </li>
 

@@ -5,13 +5,11 @@
     <div>
         <div class="row">
             <!-- <div class="col-md-4"> -->
-            <div class="minPhoto" *ngFor="let photo of album; let i=index">
-                <a href="">
-                    <img class="inline" src="{{photo?.thumbnailUrl}}">
-                    <p>Album Id: {{photo?.albumId}}</p>
-                    <p class="heigh">Title: {{photo?.title}}</p>
-                    <p>Photo Id: {{photo?.id}}</p>
-                </a>
+            <div class="minPhoto" *ngFor="let photo of album; let i=index" (click)="onClick(photo)">
+                <img class="inline" src="{{photo?.thumbnailUrl}}">
+                <p>Album Id: {{photo?.albumId}}</p>
+                <p class="heigh">Title: {{photo?.title}}</p>
+                <p>Photo Id: {{photo?.id}}</p>
             </div>
             <!-- </div> -->
         </div>
